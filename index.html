@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fibonova Foto y Filme - Contratación</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #c0c0c0;
+      color: #333;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #000000;
+    }
+    h2 {
+      color: #e67e22;
+      margin-top: 25px;
+    }
+    form {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin: 12px 0 5px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
+      white-space: nowrap;
+    }
+    .checkbox-item input {
+      width: auto;
+      margin-right: 6px;
+    }
+    button {
+      background: #d46a4a;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background: #c25a3a;
+    }
+    .total-box {
+      background: #f9f1e9;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin: 15px 0;
+    }
+    .section {
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed #eee;
+    }
+    .paquete-info {
+      background: #f8f4f0;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-top: 8px;
+      display: none;
+    }
+    .terminos {
+      background: #f0f7ff;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+    .terminos h3 {
+      margin-top: 0;
+      color: #2c3e;
+    }
+    .terminos ul {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+    .terminos li {
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+  <a href="https://fibonova.myportfolio.com/">
+  <div style="text-align: center"><img src="../Desktop/web whatsapp/imagenes/fibonova negro.png" alt="FIBONOVA FOTO &amp; FILME" width="356" height="150" class="logo"></div>
+  </a>
+<p style="text-align:center; color:#666;">Completa el formulario para reservar tu servicio</p>
+
+  <form id="fibonovaForm">
+    <!-- Datos del cliente -->
+    <div class="section">
+      <h2>Datos del cliente</h2>
+      <label for="nombre">Nombre completo *</label>
+      <input type="text" id="nombre" required>
+
+      <label for="telefono">Teléfono (con código de país, ej. 521234567890) *</label>
+      <input type="tel" id="telefono" required>
+
+      <label for="email">Correo electrónico *</label>
+      <input type="email" id="email" required>
+
+      <label for="ciudad">Ciudad *</label>
+      <input type="text" id="ciudad" placeholder="Ej. Ciudad Juárez" required>
+
+      <label for="eventoTipo">Tipo de Servicio *</label>
+      <select id="eventoTipo" required>
+        <option value="">-- Selecciona --</option>
+        <option value="Boda">Boda</option>
+        <option value="XV Años">XV Años</option>
+        <option value="Sesión fotográfica">Sesión fotográfica</option>
+        <option value="Otros">Otros (aniversario, etc.)</option>
+      </select>
+
+      <label for="fecha">Fecha del evento o sesión *</label>
+      <input type="date" id="fecha" required>
+    </div>
+
+    <!-- Detalle de sesión fotográfica (solo si aplica) -->
+    <div class="section" id="seccionSesion" style="display:none;">
+      <h2>Detalle de sesión fotográfica</h2>
+      <label for="tipoSesion">Tipo de sesión *</label>
+      <select id="tipoSesion">
+        <option value="">-- Selecciona --</option>
+        <option value="Familiar">Familiar</option>
+        <option value="Pareja">Pareja</option>
+        <option value="Maternidad">Maternidad</option>
+        <option value="Recién nacido">Boudoir</option>
+        <option value="Empresarial">Empresarial o Producto</option>
+        <option value="Otros">Otros</option>
+      </select>
+
+      <label for="lugarSesionFotografica">Lugar de la sesión *</label>
+      <input type="text" id="lugarSesionFotografica" placeholder="Ej. Parque Central">
+
+      <label for="horaSesionFotografica">Hora de la sesión *</label>
+      <input type="time" id="horaSesionFotografica">
+    </div>
+
+    <!-- Detalles del evento -->
+    <div class="section" id="seccionEvento">
+      <h2>Detalles del evento</h2>
+      <label for="lugarCasa">Casa/Hotel (lugar y hora)</label>
+      <input type="text" id="lugarCasa" placeholder="Ej. Hotel Real">
+
+      <label for="horaCasa">Hora:</label>
+      <input type="time" id="horaCasa">
+
+      <label for="lugarIglesia">Iglesia/Templo (lugar)</label>
+      <input type="text" id="lugarIglesia" placeholder="Ej. Catedral">
+
+      <label for="horaIglesia">Hora:</label>
+      <input type="time" id="horaIglesia">
+
+      <label for="lugarSesion">Lugar de sesión formal (lugar)</label>
+      <input type="text" id="lugarSesion" placeholder="Ej. Jardín principal">
+
+      <label for="horaSesion">Hora:</label>
+      <input type="time" id="horaSesion">
+
+      <label for="lugarRecepcion">Recepción/Jardín (lugar)</label>
+      <input type="text" id="lugarRecepcion" placeholder="Ej. Salón Bella Vista">
+
+      <label for="horaRecepcion">Hora:</label>
+      <input type="time" id="horaRecepcion">
+
+      <label for="otrosServicios">Otros servicios (ej. cortometraje, sesión casual)</label>
+      <textarea id="otrosServicios" rows="2" placeholder="Ej. Cortometraje en playa, sesión casual en atardecer"></textarea>
+    </div>
+
+    <!-- Paquetes predefinidos con descripción -->
+    <div class="section">
+      <h2>Paquetes recomendados</h2>
+      <label for="paquete">Selecciona un paquete (opcional)</label>
+      <select id="paquete" onchange="mostrarInfoPaquete(); calcularTotal()">
+        <option value="">-- Ninguno --</option>
+        <option value="basico-9500">BÁSICO (Fotografía) - $9,500</option>
+        <option value="premium-24500">PREMIUM (Foto + Álbum + Video) - $24,500</option>
+        <option value="platinum-16000">PLATINUM (Foto y Video) - $16,000</option>
+        <option value="fotografia-5000">Evento: Fotografía digital - $5,000</option>
+        <option value="video-6000">Evento: Video digital - $6,000</option>
+        <option value="sesion-1500">Sesión fotográfica - $1,500</option>
+      </select>
+
+      <div id="infoBasico" class="paquete-info">
+        <strong>BÁSICO ($9,500):</strong> Fotografía digital ilimitada, 1 sesión casual previa, cobertura completa del evento (iglesia, sesión formal, 4h recepción), incluye 1 foto 8x10, 1 foto 11x14 y 2 fotos 16x20.
+      </div>
+      <div id="infoPremium" class="paquete-info">
+        <strong>PREMIUM ($24,500):</strong> Incluye 2 sesiones casuales, cortometraje, cobertura completa de foto y video, álbum 10x10, libro de firmas, USB con todo el material, fotos impresas (2x8x10, 1x11x14, 2x20x24), fotoclip y video documental.
+      </div>
+      <div id="infoPlatinum" class="paquete-info">
+        <strong>PLATINUM ($16,000):</strong> 1 sesión casual, cobertura completa de foto y video, USB con material digital, fotoclip, fotos impresas (8x10, 11x14, 16x20), video documental.
+      </div>
+      <div id="infoFotografia" class="paquete-info">
+        <strong>Fotografía digital ($5,000):</strong> Cobertura fotográfica del evento, fotos ilimitadas en digital.
+      </div>
+      <div id="infoVideo" class="paquete-info">
+        <strong>Video digital ($6,000):</strong> Cobertura en video del evento, USB con video en HD (~2h).
+      </div>
+      <div id="infoSesion" class="paquete-info">
+        <strong>Sesión fotográfica ($1,500):</strong> 1 hora de sesión, cambios de ropa ilimitados, locación de tu elección, fotos en digital.
+      </div>
+    </div>
+
+    <!-- Servicios adicionales -->
+    <div class="section">
+      <h2>¿Quieres armar tu propio paquete?</h2>
+      <p>Selecciona los servicios extras que deseas agregar:</p>
+      
+      <div class="checkbox-group">
+        <div class="checkbox-item"><input type="checkbox" data-price="50" onchange="calcularTotal()"> Foto 6x8 ($50)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="500" onchange="calcularTotal()"> Foto montada 8x10 ($500)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="750" onchange="calcularTotal()"> Foto montada 11x14 ($750)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="1800" onchange="calcularTotal()"> Foto montada 16x20 ($1,800)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="2500" onchange="calcularTotal()"> Foto montada 20x24 ($2,500)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="3000" onchange="calcularTotal()"> Foto montada 20x30 ($3,000)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="1200" onchange="calcularTotal()"> Álbum 6x6 ($1,200)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="3500" onchange="calcularTotal()"> Álbum 10x10 ($3,500)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="4500" onchange="calcularTotal()"> Álbum 12x12 ($4,500)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="2500" onchange="calcularTotal()"> Álbum de firmas ($2,500)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="1000" onchange="calcularTotal()"> USB personalizado ($1,000)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="800" onchange="calcularTotal()"> Fotoclip digital ($800)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="3500" onchange="calcularTotal()"> Cortometraje ($3,500)</div>
+        <div class="checkbox-item"><input type="checkbox" data-price="1000" onchange="calcularTotal()"> Hora extra ($1,000)</div>
+      </div>
+    </div>
+
+    <!-- Total -->
+    <div class="total-box">
+      Total estimado: <span id="total">$0</span>
+    </div>
+
+    <!-- Términos y condiciones COMPLETOS -->
+    <div class="section">
+      <h2>Términos y condiciones del contrato</h2>
+      <div class="terminos">
+        <h3>He leído y acepto los siguientes términos:</h3>
+        <ul>
+          <li><strong>Partes contratantes:</strong> Este contrato se celebra entre Fibonova Foto y Filme (fotógrafo) y el cliente cuyos datos se indican en este formulario.</li>
+          <li><strong>Datos del evento:</strong> El cliente proporciona fecha, lugares (casa/hotel, iglesia, sesión, recepción) con horarios exactos.</li>
+          <li><strong>Servicios a realizar:</strong> Se detallan en este formulario y/o paquete contratado. Incluyen fotografía, video, sesiones casuales, álbumes, etc.</li>
+          <li><strong>Pagos:</strong> Anticipo del 25% no reembolsable al firmar. El 75% restante se liquida 7 días antes del evento. La fecha queda apartada con firma y anticipo.</li>
+          <li><strong>Cancelaciones y cambios:</strong> Cancelación con ≥2 semanas de anticipación: penalización del 50%. Menos de 2 semanas: sin reembolso. Cambios de fecha sujetos a disponibilidad.</li>
+          <li><strong>Condiciones de trabajo:</strong>
+            <ul>
+              <li>Gastos de transporte incluidos dentro de Ciudad Juárez, Chihuahua.</li>
+              <li>Sesiones casuales incluyen 1 locación; locaciones extras: $400 c/u.</li>
+              <li>Cliente deberá entregar plan detallado y coordinar reunión previa.</li>
+              <li>En caso de accidente, el fotógrafo asignará un sustituto con experiencia.</li>
+              <li>Fotógrafo sujeto a reglas de iglesia/recepción.</li>
+              <li>Cliente debe controlar a invitados con cámaras/celulares para no interferir el trabajo.</li>
+              <li>El fotógrafo podrá negarse a prestar el servicio si hay uso de láseres que dañen su equipo.</li>
+            </ul>
+          </li>
+          <li><strong>Derechos de autor y uso de imágenes:</strong>
+            <ul>
+              <li>Imágenes entregadas en alta calidad y sin marcas de agua.</li>
+              <li>Derechos de autor pertenecen al fotógrafo.</li>
+              <li>Cliente recibe licencia para uso privado y personal.</li>
+              <li>El fotógrafo podrá utilizar las imágenes en su portafolio profesional.</li>
+              <li>Prohibido uso comercial o edición sin autorización escrita.</li>
+              <li>Cliente no podrá retocar imágenes entregadas.</li>
+              <li>Copias posibles solo si el fotógrafo conserva respaldo.</li>
+            </ul>
+          </li>
+          <li><strong>Entrega:</strong> Máximo 60 días naturales (álbumes hasta 30 días adicionales). Entrega exprés en 72h (solo digital) por $800.</li>
+          <li><strong>Jurisdicción:</strong> Cualquier disputa se resolverá en Ciudad Juárez, Chihuahua.</li>
+          <li><strong>Aceptación:</strong> Al enviar este formulario, el cliente confirma haber leído, entendido y aceptado todos los términos del contrato.</li>
+        </ul>
+      </div>
+      <label>
+        <input type="checkbox" id="aceptoTerminos" required> Acepto los términos y condiciones del contrato
+      </label>
+    </div>
+
+    <!-- Mensaje -->
+    <label for="mensaje">Mensaje adicional (opcional)</label>
+    <textarea id="mensaje" rows="3" placeholder="Ej. ¿Tienes alguna solicitud especial?"></textarea>
+
+    <button type="submit">Enviar solicitud a WhatsApp</button>
+  </form>
+
+  <script>
+    // Mostrar/ocultar sección de sesión según tipo de evento
+    document.getElementById("eventoTipo").addEventListener("change", function() {
+      const tipo = this.value;
+      const seccionSesion = document.getElementById("seccionSesion");
+      const seccionEvento = document.getElementById("seccionEvento");
+      
+      if (tipo === "Sesión fotográfica") {
+        seccionSesion.style.display = "block";
+        seccionEvento.style.display = "none";
+      } else {
+        seccionSesion.style.display = "none";
+        seccionEvento.style.display = "block";
+      }
+    });
+
+    function mostrarInfoPaquete() {
+      document.querySelectorAll('.paquete-info').forEach(el => el.style.display = 'none');
+      const valor = document.getElementById("paquete").value;
+      if (valor.includes("basico")) document.getElementById("infoBasico").style.display = "block";
+      if (valor.includes("premium")) document.getElementById("infoPremium").style.display = "block";
+      if (valor.includes("platinum")) document.getElementById("infoPlatinum").style.display = "block";
+      if (valor.includes("fotografia")) document.getElementById("infoFotografia").style.display = "block";
+      if (valor.includes("video")) document.getElementById("infoVideo").style.display = "block";
+      if (valor.includes("sesion")) document.getElementById("infoSesion").style.display = "block";
+    }
+
+    function calcularTotal() {
+      let total = 0;
+      const paqueteSelect = document.getElementById("paquete");
+      if (paqueteSelect.value) {
+        const precioPaquete = parseInt(paqueteSelect.value.split("-")[1]);
+        total += precioPaquete;
+      }
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      checkboxes.forEach(cb => {
+        total += parseInt(cb.getAttribute('data-price'));
+      });
+      document.getElementById("total").textContent = "$" + total.toLocaleString();
+    }
+
+    document.getElementById("fibonovaForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      if (!document.getElementById("aceptoTerminos").checked) {
+        alert("Debes aceptar los términos y condiciones para continuar.");
+        return;
+      }
+
+      const nombre = document.getElementById("nombre").value;
+      const telefono = document.getElementById("telefono").value.replace(/\D/g, '');
+      const email = document.getElementById("email").value;
+      const ciudad = document.getElementById("ciudad").value;
+      const eventoTipo = document.getElementById("eventoTipo").value;
+      const fecha = document.getElementById("fecha").value;
+      const mensajeAdicional = document.getElementById("mensaje").value || "Ninguno";
+
+      let mensajeEvento = "";
+      let mensajeSesion = "";
+
+      if (eventoTipo === "Sesión fotográfica") {
+        const tipoSesion = document.getElementById("tipoSesion").value || "No especificado";
+        const lugarSesionFotografica = document.getElementById("lugarSesionFotografica").value || "No especificado";
+        const horaSesionFotografica = document.getElementById("horaSesionFotografica").value || "No especificado";
+        mensajeSesion = 
+          `%0A--- DETALLE DE SESIÓN FOTOGRÁFICA ---%0A` +
+          `Tipo de sesión: ${tipoSesion}%0A` +
+          `Lugar: ${lugarSesionFotografica}%0A` +
+          `Hora: ${horaSesionFotografica}`;
+      } else {
+        const lugarCasa = document.getElementById("lugarCasa").value || "No especificado";
+        const horaCasa = document.getElementById("horaCasa").value || "No especificado";
+        const lugarIglesia = document.getElementById("lugarIglesia").value || "No especificado";
+        const horaIglesia = document.getElementById("horaIglesia").value || "No especificado";
+        const lugarSesion = document.getElementById("lugarSesion").value || "No especificado";
+        const horaSesion = document.getElementById("horaSesion").value || "No especificado";
+        const lugarRecepcion = document.getElementById("lugarRecepcion").value || "No especificado";
+        const horaRecepcion = document.getElementById("horaRecepcion").value || "No especificado";
+        const otrosServicios = document.getElementById("otrosServicios").value || "Ninguno";
+
+        mensajeEvento = 
+          `%0A--- LUGARES Y HORARIOS DEL EVENTO ---%0A` +
+          `Casa/Hotel: ${lugarCasa} | Hora: ${horaCasa}%0A` +
+          `Iglesia: ${lugarIglesia} | Hora: ${horaIglesia}%0A` +
+          `Sesión formal: ${lugarSesion} | Hora: ${horaSesion}%0A` +
+          `Recepción: ${lugarRecepcion} | Hora: ${horaRecepcion}%0A` +
+          `Otros servicios: ${otrosServicios}`;
+      }
+
+      const paqueteTexto = document.getElementById("paquete").options[document.getElementById("paquete").selectedIndex].text;
+      const total = document.getElementById("total").textContent;
+
+      let extras = [];
+      document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+        const label = cb.parentElement.textContent.trim();
+        extras.push(label);
+      });
+      const extrasTexto = extras.length > 0 ? extras.join(", ") : "Ninguno";
+
+      const clausulas = 
+        "%0A--- CLÁUSULAS COMPLETAS DEL CONTRATO ---%0A" +
+        "• Anticipo 25% no reembolsable. 75% restante 7 días antes.%0A" +
+        "• Cancelación ≥2 semanas: penalización 50%. <2 semanas: sin reembolso.%0A" +
+        "• Cambios de fecha sujetos a disponibilidad.%0A" +
+        "• Entrega en ≤60 días (álbumes +30 días). Exprés 72h: $800.%0A" +
+        "• Transporte incluido en Ciudad Juárez, Chihuahua.%0A" +
+        "• Sesiones casuales: 1 locación incluida; extras $400 c/u.%0A" +
+        "• Cliente entrega plan detallado y coordina reunión previa.%0A" +
+        "• En caso de accidente, se asigna sustituto calificado.%0A" +
+        "• Cliente controla invitados con cámaras/celulares.%0A" +
+        "• Prohibido uso de láseres que dañen equipo.%0A" +
+        "• Derechos de autor: pertenecen al fotógrafo.%0A" +
+        "• Cliente recibe licencia para uso personal.%0A" +
+        "• Fotógrafo puede usar imágenes en portafolio.%0A" +
+        "• Prohibido uso comercial o edición sin autorización.%0A" +
+        "• Jurisdicción: Ciudad Juárez, Chihuahua.%0A" +
+        "• Cliente acepta todos los términos del contrato.";
+
+      const mensaje = 
+        `¡Nueva solicitud de Fibonova Foto y Filme!%0A` +
+        `%0A` +
+        `Nombre: ${nombre}%0A` +
+        `Teléfono: ${telefono}%0A` +
+        `Correo: ${email}%0A` +
+        `Ciudad: ${ciudad}%0A` +
+        `Tipo de evento: ${eventoTipo}%0A` +
+        `Fecha del evento: ${fecha}` +
+        mensajeSesion +
+        mensajeEvento +
+        `%0A--- PAQUETE Y SERVICIOS ---%0A` +
+        `Paquete: ${paqueteTexto === "-- Ninguno --" ? "Personalizado" : paqueteTexto}%0A` +
+        `Extras: ${extrasTexto}%0A` +
+        `Total estimado: ${total}%0A` +
+        `Mensaje: ${mensajeAdicional}` +
+        clausulas;
+
+      const tuWhatsapp = "+526564049458"; // ← ¡Cambia esto por tu número real!
+
+      window.open(`https://wa.me/${tuWhatsapp}?text=${mensaje}`, '_blank');
+    });
+
+    calcularTotal();
+  </script>
+</body>
+</html>
